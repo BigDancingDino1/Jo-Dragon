@@ -2,20 +2,20 @@
     <html lang="en">
       <style>
   html {
-      background :url('images/Dragons.gif') no-repeat center center fixed;
+      background :url('/my_website/images/Dragons.gif') no-repeat center center fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
       -backround-size: cover;
   }
 a:link{
-  color:orange;}
+  color:purple;}
 a:visited{
   color:red;}
   
   
   
-  </style>
+  </style> 
   
       <head>
     <meta charset="utf-8">
@@ -67,3 +67,104 @@ a:visited{
     <td>N/A</td>
   </tr>
 </table>
+<canvas id="canvas"></canvas>
+
+	<style = "text/css">
+
+		#img1popout {
+
+			z-index: 5;
+
+			position: absolute;
+
+			width: 550px;
+
+			height: 300px;
+
+			top: 50px;
+
+            border: 1px dashed #000099;
+
+			background-color: #ddddff;
+
+		}
+
+		#img1popin{}
+
+		
+
+	</style>
+		
+		<script type = "text/javascript">
+
+		function initPopout()
+
+		{
+
+			var thumb1 = document.getElementById("image1"); 
+
+			
+
+			thumb1.onmouseover = showDetailedView;
+
+		}
+
+
+
+		function showDetailedView()
+
+		{
+
+			var im1 = document.getElementById("img1popin");
+
+			im1.id = "img1popout";
+
+			im1.innerHTML = "<br /><TABLE><TR><TH rowspan='3'><img src='images/genji.jpg' width='250'><TH align='left'>Name: <TH align='left'>Genji Shimada<TR><TH align='left'>Abilities: <TH align='left'>Shurikens, Swift Strike, Deflect, Dragon Blade<TR></TABLE> ";
+
+			var popOut = document.getElementById("img1popout");
+
+			popOut.onmouseout = hideDetailedView;			
+
+		}
+
+
+
+		function hideDetailedView()
+
+		{
+
+			var im1 = document.getElementById("img1popout");
+
+			im1.id = "img1popin";
+
+			im1.innerHTML = "";
+
+		}
+
+	</script>
+	
+	</head>
+
+<body onload="initPopout();">
+
+<br>
+
+<table>
+
+	<caption>Your Heroes:</caption>
+
+	<tbody>
+
+	<tr>
+
+		<td>
+
+			<img id="image1" src="images/genji.jpg" width= "180" height= "150"><div id = "img1popin"></div>
+
+		</td>
+		
+	</tr>
+
+	</tbody>
+
+</table>	
